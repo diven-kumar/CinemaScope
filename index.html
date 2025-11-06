@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CinemaScope</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+  <header id="topNav" class="nav">
+    <div class="nav-inner">
+      <div class="left">
+        <div class="logo" id="logo">AB</div>
+        <nav class="tabs" role="navigation" aria-label="Main">
+          <button class="tab active" data-section="home" title="Home"><i class="fas fa-home"></i></button>
+          <button class="tab" data-section="movies" title="Movies"><i class="fas fa-film"></i></button>
+          <button class="tab" data-section="tv" title="TV Shows"><i class="fas fa-tv"></i></button>
+          <button class="tab" data-section="list" title="My List"><i class="fas fa-heart"></i></button>
+        </nav>
+      </div>
+      <div class="right">
+        <div class="search-wrap">
+          <button class="search-btn" id="searchBtn" title="Search"><i class="fas fa-search"></i></button>
+        </div>
+        <button id="profileBtn" class="profile" aria-label="Profile">
+          <i class="fas fa-user-circle"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="hero" class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-content">
+        <h1 id="heroTitle"></h1>
+        <p id="heroTagline" class="tagline"></p>
+        <div class="hero-actions">
+          <button id="heroPlay" class="btn primary"><i class="fas fa-play"></i><span>Play Trailer</span></button>
+          <button id="heroInfo" class="btn outline"><i class="fas fa-info-circle"></i><span>More Info</span></button>
+          <button id="heroFav" class="btn heart"><i class="far fa-heart"></i><span class="btn-text">Add to List</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="rows" class="rows"></section>
+    <div id="noResults" class="empty" hidden>No results found.</div>
+  </main>
+
+  <div id="toast" class="toast" aria-hidden="true"></div>
+
+  <div id="searchModal" class="modal">
+    <div class="modal-content search-modal">
+      <div class="modal-header">
+        <h2>Search Movies & TV Shows</h2>
+        <button class="modal-close" id="searchClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="search-input-wrap">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search for movies, TV shows..." />
+      </div>
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
+
+  <div id="detailModal" class="modal">
+    <div class="modal-content detail-modal">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <div id="profileModal" class="modal">
+    <div class="modal-content profile-modal">
+      <div class="modal-header">
+        <h2>Profile Settings</h2>
+        <button class="modal-close" id="profileClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="profile-content">
+        <div class="profile-avatar">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <h3>Cinema User</h3>
+        <div class="profile-stats">
+          <div class="stat">
+            <div class="stat-value" id="statFavorites">0</div>
+            <div class="stat-label">Favorites</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="statWatched">0</div>
+            <div class="stat-label">Watched</div>
+          </div>
+        </div>
+        <button class="btn primary" id="clearListBtn">Clear My List</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
